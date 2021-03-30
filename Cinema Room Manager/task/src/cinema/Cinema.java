@@ -11,8 +11,6 @@ public class Cinema {
         char[][] matrix;
         int rows;
         int seats;
-        int row;
-        int seat;
 
         System.out.println("Enter the number of rows:");
         rows = input(scanner);
@@ -20,19 +18,17 @@ public class Cinema {
         seats = input(scanner);
         matrix = new char[rows][seats];
         writeS(matrix, rows, seats);
-        printMatrixCinema(matrix, rows, seats);
+        //printMatrixCinema(matrix, rows, seats);
+        menu(scanner, matrix);
 
-        System.out.println("Enter a row number:");
-        row = input(scanner);
-        System.out.println("Enter a seat number in that row:");
-        seat = input(scanner);
-
-        System.out.println("Ticket price: $" + incomeOne(rows, seats, row, seat));
-        chengSB(matrix, row, seat);
-        printMatrixCinema(matrix, rows, seats);
-
-        //printCinema(rows, seats);
-        //System.out.println("$" + incomeAll(rows, seats));
+//        System.out.println("Enter a row number:");
+//        row = input(scanner);
+//        System.out.println("Enter a seat number in that row:");
+//        seat = input(scanner);
+//
+//        System.out.println("Ticket price: $" + incomeOne(rows, seats, row));
+//        //chengSB(matrix, row, seat);
+//        /?printMatrixCinema(matrix, rows, seats);
 
     }
 
@@ -48,52 +44,34 @@ public class Cinema {
         }
     }
 
-    public static void printMatrixCinema(char[][] matrix, int n, int m) {
+    public static void printMatrixCinema(char[][] matrix) {
         System.out.println("Cinema:");
         System.out.print(" ");
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             System.out.print(" " + (i + 1));
         }
         System.out.println();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             System.out.print(i + 1);
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < matrix[0].length; j++) {
                 System.out.print(" " + matrix[i][j]);
             }
             System.out.println();
         }
     }
 
-    public static void chengSB(char[][] matrix, int n, int m) {
-        matrix[n - 1][m - 1] = 'B';
+    public static void chengSB(char[][] matrix, Scanner scanner) {
+        int row;
+        int seat;
+        System.out.println("Enter a row number:");
+        row = input(scanner);
+        System.out.println("Enter a seat number in that row:");
+        seat = input(scanner);
+        matrix[row-1][seat-1] = 'B';
+        System.out.println("Ticket price: $" + incomeOne(matrix.length, matrix[0].length, row));
     }
 
-    public static void printCinema(int n, int m) {
-        System.out.println("Cinema:");
-        System.out.print(" ");
-        for (int i = 0; i < m; i++) {
-            System.out.print(" " + (i + 1));
-        }
-        System.out.println();
-        for (int i = 1; i <= n; i++) {
-            System.out.print(i);
-            for (int j = 0; j < m; j++) {
-                System.out.print(" S");
-            }
-            System.out.println();
-        }
-    }
-
-    public static int incomeAll(int n, int m) {
-        if (n * m > 60) {
-            return (n / 2) * m * 10 + (n - n / 2) * m * 8;
-        } else {
-            return n * m * 10;
-        }
-
-    }
-
-    public static int incomeOne(int n, int m, int row, int seat) {
+    public static int incomeOne(int n, int m, int row) {
         if (n * m > 60) {
             if (row > n / 2) {
                 return 8;
@@ -104,5 +82,31 @@ public class Cinema {
             return 10;
         }
 
+    }
+
+    public static void byTicket(Scanner scanner, char[][] matrix) {
+        chengSB(matrix, scanner);
+    }
+
+    public static void menu(Scanner scanner, char[][] matrix) {
+        int number;
+        while (true) {
+            System.out.println("\n1. Show the seats\n" +
+                    "2. Buy a ticket\n" +
+                    "0. Exit");
+            number = input(scanner);
+            switch (number) {
+                case 1:
+                    printMatrixCinema(matrix);
+                    break;
+                case 2:
+                    byTicket(scanner, matrix);
+                    break;
+                case 0:
+                    return;
+                default:
+                    break;
+            }
+        }
     }
 }
