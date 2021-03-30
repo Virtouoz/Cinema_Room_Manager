@@ -13,8 +13,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Cinema Room Manager/task" />
+            <option value="$PROJECT_DIR$/Problems/Adding values" />
+            <option value="$PROJECT_DIR$/Problems/Calculator with four methods" />
             <option value="$PROJECT_DIR$/Problems/Fixing the main method" />
             <option value="$PROJECT_DIR$/Problems/Fixing the main method (1)" />
+            <option value="$PROJECT_DIR$/Problems/Print  Hello, Java_" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
