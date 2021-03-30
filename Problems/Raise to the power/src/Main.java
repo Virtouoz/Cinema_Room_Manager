@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int sign(int number) {
+    public static long power(int n, int m) {
         // write your code here
-        return Integer.signum(number);
+        return (long) Math.pow(n, m);
     }
 
     /* Do not change code below */
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final int n = scanner.nextInt();
-        System.out.println(sign(n));
+        final int m = scanner.nextInt();
+        System.out.println(power(n, m));
     }
 }
