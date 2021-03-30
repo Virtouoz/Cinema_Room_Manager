@@ -13,4 +13,11 @@ public class Main {
         int[] result = getFirstAndLast(array);
         Arrays.stream(result).forEach(e -> System.out.print(e + " "));
     }
+
+    private static int[] getFirstAndLast(int[] array) {
+        int[] result = new int[2];
+        result[0] = array[0];
+        result[1] = array[array.length - 1];
+        return result;
+    }
 }
