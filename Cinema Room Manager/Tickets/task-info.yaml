@@ -1,17 +1,5 @@
 type: edu
 files:
-- name: src/cinema/Cinema.java
-  visible: true
-  text: |-
-    package cinema;
-
-    public class Cinema {
-
-        public static void main(String[] args) {
-            // Write your code here
-        }
-    }
-  learner_created: false
 - name: test/CinemaTests.java
   visible: false
   text: |
@@ -298,9 +286,21 @@ files:
         }
     }
   learner_created: false
+- name: src/cinema/Cinema.java
+  visible: true
+  text: |-
+    package cinema;
+
+    public class Cinema {
+
+        public static void main(String[] args) {
+            // Write your code here
+        }
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/133/stages/711/implement#comment
 status: Solved
 feedback:
   message: Congratulations!
   time: Tue, 30 Mar 2021 14:22:06 UTC
-record: -1
+record: 3
