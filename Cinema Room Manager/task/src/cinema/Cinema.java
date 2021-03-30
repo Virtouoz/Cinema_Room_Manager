@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class Cinema {
 
     public static void main(String[] args) {
-        // Write your code here
         Scanner scanner = new Scanner(System.in);
-
         char[][] matrix;
         int rows;
         int seats;
@@ -18,18 +16,7 @@ public class Cinema {
         seats = input(scanner);
         matrix = new char[rows][seats];
         writeS(matrix, rows, seats);
-        //printMatrixCinema(matrix, rows, seats);
         menu(scanner, matrix);
-
-//        System.out.println("Enter a row number:");
-//        row = input(scanner);
-//        System.out.println("Enter a seat number in that row:");
-//        seat = input(scanner);
-//
-//        System.out.println("Ticket price: $" + incomeOne(rows, seats, row));
-//        //chengSB(matrix, row, seat);
-//        /?printMatrixCinema(matrix, rows, seats);
-
     }
 
     public static int input(Scanner scanner) {
@@ -67,7 +54,7 @@ public class Cinema {
         row = input(scanner);
         System.out.println("Enter a seat number in that row:");
         seat = input(scanner);
-        matrix[row-1][seat-1] = 'B';
+        matrix[row - 1][seat - 1] = 'B';
         System.out.println("Ticket price: $" + incomeOne(matrix.length, matrix[0].length, row));
     }
 
