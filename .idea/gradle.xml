@@ -8,20 +8,25 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="14" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Cinema Room Manager/task" />
             <option value="$PROJECT_DIR$/Problems/Adding values" />
             <option value="$PROJECT_DIR$/Problems/Application as a class" />
+            <option value="$PROJECT_DIR$/Problems/Avoid NPE" />
             <option value="$PROJECT_DIR$/Problems/Calculator with four methods" />
             <option value="$PROJECT_DIR$/Problems/Fixing the main method" />
             <option value="$PROJECT_DIR$/Problems/Fixing the main method (1)" />
             <option value="$PROJECT_DIR$/Problems/Get first and last elements" />
             <option value="$PROJECT_DIR$/Problems/Print  Hello, Java_" />
             <option value="$PROJECT_DIR$/Problems/Raise to the power" />
+            <option value="$PROJECT_DIR$/Problems/Return empty string when argument is null" />
             <option value="$PROJECT_DIR$/Problems/The sign of a number" />
+            <option value="$PROJECT_DIR$/Topics/NPE/Avoid NPE" />
+            <option value="$PROJECT_DIR$/Topics/NPE/Return empty string when argument is null" />
+            <option value="$PROJECT_DIR$/Topics/NPE/Theory" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

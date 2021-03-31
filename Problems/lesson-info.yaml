@@ -8,3 +8,5 @@ content:
 - Get first and last elements
 - The sign of a number
 - Raise to the power
+- Return empty string when argument is null
+- Avoid NPE
