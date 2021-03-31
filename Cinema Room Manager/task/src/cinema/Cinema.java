@@ -47,6 +47,18 @@ public class Cinema {
         }
     }
 
+    public static boolean verifyChengSB(char[][] matrix, int row, int seat) {
+        if (row > matrix.length || seat > matrix[0].length) {
+            System.out.println("Wrong input!");
+            return false;
+        } else if (matrix[row - 1][seat - 1] == 'B') {
+            System.out.println("That ticket has already been purchased!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public static void chengSB(char[][] matrix, Scanner scanner) {
         int row;
         int seat;
@@ -54,6 +66,17 @@ public class Cinema {
         row = input(scanner);
         System.out.println("Enter a seat number in that row:");
         seat = input(scanner);
+        while (true) {
+            if (!verifyChengSB(matrix, row, seat)) {
+                System.out.println("Enter a row number:");
+                row = input(scanner);
+                System.out.println("Enter a seat number in that row:");
+                seat = input(scanner);
+            } else {
+                break;
+            }
+        }
+        verifyChengSB(matrix, row, seat);
         matrix[row - 1][seat - 1] = 'B';
         System.out.println("Ticket price: $" + incomeOne(matrix.length, matrix[0].length, row));
     }
@@ -68,11 +91,42 @@ public class Cinema {
         } else {
             return 10;
         }
+    }
 
+    public static int totalIncome(int n, int m) {
+        if (n * m <= 60) {
+            return n * m * 10;
+        } else {
+            return ((n / 2) * 10 + (n - n / 2) * 8) * m;
+        }
     }
 
     public static void byTicket(Scanner scanner, char[][] matrix) {
         chengSB(matrix, scanner);
+    }
+
+    public static void statistics(char[][] matrix) {
+        float numberOfPurchasedTickets = 0;
+        int currentIncome = 0;
+        float allTickets;
+        float result;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 'B') {
+                    numberOfPurchasedTickets++;
+                    currentIncome += incomeOne(matrix.length, matrix[0].length, i + 1);
+                }
+            }
+        }
+
+        allTickets = matrix.length * matrix[0].length;
+        result = numberOfPurchasedTickets / allTickets * 100;
+
+        System.out.printf("Number of purchased tickets: %.0f\n", numberOfPurchasedTickets);
+        System.out.printf("Percentage: %.2f%%\n", result);
+        System.out.println("Current income: $" + currentIncome);
+        System.out.println("Total income: $" + totalIncome(matrix.length, matrix[0].length));
     }
 
     public static void menu(Scanner scanner, char[][] matrix) {
@@ -80,6 +134,7 @@ public class Cinema {
         while (true) {
             System.out.println("\n1. Show the seats\n" +
                     "2. Buy a ticket\n" +
+                    "3. Statistics\n" +
                     "0. Exit");
             number = input(scanner);
             switch (number) {
@@ -88,6 +143,9 @@ public class Cinema {
                     break;
                 case 2:
                     byTicket(scanner, matrix);
+                    break;
+                case 3:
+                    statistics(matrix);
                     break;
                 case 0:
                     return;
